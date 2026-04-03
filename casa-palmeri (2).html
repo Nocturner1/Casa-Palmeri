@@ -1,0 +1,2094 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casa Palmeri & Tenuta Palmeri — Roma · Sicilia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --olive:      #2d3a1e;
+  --olive-mid:  #3f5229;
+  --olive-light:#6b8250;
+  --cream:      #f5f0e8;
+  --sand:       #e8dfc8;
+  --gold:       #b8965a;
+  --gold-light: #d4b07a;
+  --warm-white: #faf7f2;
+  --charcoal:   #1a1a14;
+  --text-body:  #3a3a2e;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'Jost', sans-serif;
+  --display: 'Fjalla One', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--serif);
+  background: var(--warm-white);
+  color: var(--text-body);
+  overflow-x: hidden;
+}
+
+/* ─── LANGUAGE SWITCHER ─── */
+.lang-bar {
+  display: flex;
+  gap: 0;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(184,150,90,0.3);
+  border-radius: 3px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.lang-bar button {
+  background: none;
+  border: none;
+  color: rgba(245,240,232,0.65);
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 8px 14px;
+  transition: color 0.2s, background 0.2s;
+}
+.lang-bar button.active { color: #fff; background: rgba(184,150,90,0.3); }
+.lang-bar button:not(:last-child) {
+  border-right: 1px solid rgba(184,150,90,0.25);
+}
+.lang-bar button:hover { color: #fff; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 48px;
+  transition: background 0.4s, padding 0.4s, backdrop-filter 0.4s;
+}
+nav.scrolled {
+  background: rgba(45,58,30,0.97);
+  backdrop-filter: blur(12px);
+  padding: 12px 48px;
+  box-shadow: 0 2px 40px rgba(0,0,0,0.3);
+}
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  text-decoration: none;
+}
+.nav-logo .logo-main {
+  font-family: var(--display);
+  font-size: 30px;
+  color: var(--cream);
+  letter-spacing: 0.05em;
+}
+.nav-logo .logo-tenuta {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--gold-light);
+  letter-spacing: 0.2em;
+  margin-top: 2px;
+}
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.8);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold-light); }
+.nav-book {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--olive);
+  background: var(--gold);
+  border: none;
+  padding: 12px 28px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-book:hover { background: var(--gold-light); }
+
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(26,26,20,0.35) 0%, rgba(26,26,20,0.25) 40%, rgba(26,26,20,0.72) 100%),
+    url('https://images.squarespace-cdn.com/content/v1/5fb3e03d7a635c7f4f76f578/8e83205f-474e-46d2-8a4f-7c0f39008a16/Palmeri-Views-18.jpg') center/cover no-repeat;
+  transform: scale(1.05);
+  animation: heroZoom 12s ease-out forwards;
+}
+@keyframes heroZoom {
+  from { transform: scale(1.05); }
+  to   { transform: scale(1.0); }
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(45,58,30,0.5) 0%, transparent 60%);
+}
+
+/* Vine/leaf decorative element */
+.hero-deco {
+  position: absolute;
+  top: 50%;
+  right: 60px;
+  transform: translateY(-50%);
+  opacity: 0.15;
+  font-size: 280px;
+  color: var(--gold);
+  font-family: serif;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 80px 90px;
+  max-width: 900px;
+  animation: heroFadeUp 1.2s ease-out 0.3s both;
+}
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-eyebrow {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+}
+.hero-eyebrow::before {
+  background: #fff;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+.hero-title {
+  font-family: var(--display);
+  font-size: clamp(56px, 8vw, 110px);
+  line-height: 0.92;
+  color: var(--cream);
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+.hero-title em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold-light);
+}
+.hero-sub {
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(245,240,232,0.95);
+  max-width: 520px;
+  line-height: 1.6;
+  margin-bottom: 44px;
+}
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--olive);
+  background: var(--gold);
+  border: none;
+  padding: 18px 40px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.25s, transform 0.2s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+.btn-outline {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: transparent;
+  border: 1px solid rgba(245,240,232,0.5);
+  padding: 18px 40px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.25s, color 0.25s;
+  display: inline-block;
+}
+.btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); }
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 36px;
+  right: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+}
+.hero-scroll span {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.5);
+  writing-mode: vertical-lr;
+}
+.scroll-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%,100% { opacity: 0.4; transform: scaleY(1); }
+  50%      { opacity: 1; transform: scaleY(1.1); }
+}
+
+/* ─── TICKER ─── */
+.ticker-wrap {
+  background: var(--olive);
+  overflow: hidden;
+  padding: 14px 0;
+  border-top: 1px solid rgba(184,150,90,0.3);
+  border-bottom: 1px solid rgba(184,150,90,0.3);
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 32s linear infinite;
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.ticker-item {
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  padding: 0 40px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.ticker-item::after {
+  content: '◆';
+  font-size: 8px;
+  color: var(--gold);
+}
+
+/* ─── SECTION COMMONS ─── */
+section { position: relative; }
+
+.section-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.section-label {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-family: var(--display);
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.0;
+  color: var(--olive);
+  margin-bottom: 24px;
+}
+.section-title em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--olive-light);
+}
+
+/* ─── INTRO / PHILOSOPHY ─── */
+.philosophy {
+  padding: 160px 0;
+  background: var(--warm-white);
+}
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.philosophy-text {}
+.philosophy-text .section-title { margin-bottom: 32px; }
+.philosophy-text p {
+  font-size: clamp(20px, 1.8vw, 24px);
+  line-height: 1.75;
+  font-weight: 300;
+  color: var(--text-body);
+  margin-bottom: 20px;
+}
+.philosophy-text p strong {
+  font-weight: 600;
+  color: var(--olive);
+}
+.philosophy-img {
+  position: relative;
+}
+.philosophy-img img {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  display: block;
+}
+.philosophy-img::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: 20px;
+  bottom: 20px;
+  border: 1px solid var(--gold);
+  z-index: -1;
+}
+.philosophy-quote {
+  margin-top: 40px;
+  padding: 24px 32px;
+  border-left: 3px solid var(--gold);
+  background: var(--sand);
+}
+.philosophy-quote blockquote {
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--olive);
+}
+.philosophy-quote cite {
+  display: block;
+  margin-top: 12px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-style: normal;
+}
+
+/* ─── DESTINATIONS ─── */
+.destinations {
+  padding: 160px 0;
+  background: var(--olive);
+}
+.destinations .section-label { color: var(--gold-light); }
+.destinations .section-label::before { background: var(--gold-light); }
+.destinations .section-title { color: var(--cream); margin-bottom: 64px; }
+.destinations .section-title em { color: var(--gold-light); }
+
+.dest-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.dest-card {
+  position: relative;
+  overflow: hidden;
+  height: 680px;
+  cursor: pointer;
+}
+.dest-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.dest-card:hover img { transform: scale(1.06); }
+.dest-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26,26,20,0.92) 0%, rgba(26,26,20,0.3) 50%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 48px;
+}
+.dest-tag {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dest-tag::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+}
+.dest-name {
+  font-family: var(--display);
+  font-size: 42px;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.dest-desc {
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(245,240,232,0.8);
+  line-height: 1.6;
+  max-width: 380px;
+  margin-bottom: 28px;
+}
+.dest-link {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: gap 0.2s, color 0.2s;
+}
+.dest-link::after {
+  content: '→';
+  transition: transform 0.2s;
+}
+.dest-link:hover { color: var(--cream); gap: 18px; }
+.dest-link:hover::after { transform: translateX(4px); }
+
+/* ─── ROOMS ─── */
+.rooms {
+  padding: 160px 0;
+  background: var(--cream);
+}
+.rooms-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 80px;
+}
+.rooms-header .section-label { justify-content: center; }
+.rooms-header .section-label::before { display: none; }
+.rooms-header p {
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.room-card {
+  background: var(--warm-white);
+  overflow: hidden;
+  position: relative;
+}
+.room-card-img {
+  height: 280px;
+  overflow: hidden;
+}
+.room-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.room-card:hover .room-card-img img { transform: scale(1.08); }
+.room-card-body {
+  padding: 32px;
+}
+.room-card-tag {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.room-card-title {
+  font-family: var(--display);
+  font-size: 24px;
+  color: var(--olive);
+  margin-bottom: 12px;
+}
+.room-card-desc {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text-body);
+  margin-bottom: 24px;
+}
+.room-card-link {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--olive-mid);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 4px;
+  transition: color 0.2s, gap 0.2s;
+}
+.room-card-link:hover { color: var(--gold); gap: 16px; }
+
+/* ─── EXPERIENCES ─── */
+.experiences {
+  padding: 160px 0;
+  background: var(--warm-white);
+}
+.exp-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: start;
+}
+.exp-sticky {
+  position: sticky;
+  top: 120px;
+}
+.exp-sticky .section-title { font-size: clamp(32px, 4vw, 52px); }
+.exp-sticky p {
+  font-size: 21px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--text-body);
+  margin-top: 24px;
+}
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.exp-item {
+  background: var(--cream);
+  padding: 44px 48px;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 32px;
+  align-items: start;
+  transition: background 0.25s;
+}
+.exp-item:hover { background: var(--sand); }
+.exp-number {
+  font-family: var(--display);
+  font-size: 52px;
+  color: var(--gold);
+  opacity: 0.4;
+  line-height: 1;
+  margin-top: -6px;
+}
+.exp-item-title {
+  font-family: var(--display);
+  font-size: 28px;
+  color: var(--olive);
+  margin-bottom: 12px;
+}
+.exp-item-desc {
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+/* ─── WEINE / PRODUCTS ─── */
+.products {
+  padding: 160px 0;
+  background: var(--olive);
+  position: relative;
+  overflow: hidden;
+}
+.products::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(184,150,90,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.products .section-label { color: var(--gold-light); }
+.products .section-label::before { background: var(--gold-light); }
+.products .section-title { color: var(--cream); margin-bottom: 20px; }
+.products .section-title em { color: var(--gold-light); }
+.products-intro {
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(245,240,232,0.75);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 64px;
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-bottom: 48px;
+}
+.product-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(184,150,90,0.2);
+  padding: 40px 32px;
+  transition: background 0.25s, border-color 0.25s;
+}
+.product-card:hover {
+  background: rgba(184,150,90,0.1);
+  border-color: rgba(184,150,90,0.5);
+}
+.product-icon {
+  font-size: 36px;
+  margin-bottom: 20px;
+  display: block;
+}
+.product-name {
+  font-family: var(--display);
+  font-size: 22px;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+.product-desc {
+  font-size: 17px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.65;
+  color: rgba(245,240,232,0.65);
+}
+.products-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn-gold {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--olive);
+  background: var(--gold);
+  border: none;
+  padding: 18px 40px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+}
+.btn-gold:hover { background: var(--gold-light); }
+.btn-outline-light {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  background: transparent;
+  border: 1px solid rgba(184,150,90,0.5);
+  padding: 18px 40px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-outline-light:hover { border-color: var(--gold-light); color: var(--cream); }
+
+/* ─── RESTAURANT ─── */
+.restaurant {
+  padding: 0;
+  background: var(--warm-white);
+}
+.restaurant-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 640px;
+}
+.restaurant-img {
+  position: relative;
+  overflow: hidden;
+}
+.restaurant-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+.restaurant-img:hover img { transform: scale(1.04); }
+.restaurant-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent 60%, var(--warm-white));
+}
+.restaurant-content {
+  padding: 80px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.restaurant-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--olive);
+  color: var(--gold-light);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  margin-bottom: 32px;
+  width: fit-content;
+}
+.restaurant-content .section-title { margin-bottom: 28px; }
+.restaurant-content p {
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--text-body);
+  margin-bottom: 20px;
+}
+.restaurant-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 28px 0 36px;
+  list-style: none;
+}
+.restaurant-features li {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--olive-light);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.restaurant-features li::before {
+  content: '◆';
+  font-size: 7px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ─── GALLERY ─── */
+.gallery {
+  padding: 160px 0 0;
+  background: var(--cream);
+}
+.gallery-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.gallery-header .section-label { justify-content: center; }
+.gallery-header .section-label::before { display: none; }
+
+.gallery-mosaic {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(2, 300px);
+  gap: 2px;
+}
+.gallery-item {
+  overflow: hidden;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+.gallery-item:hover img { transform: scale(1.08); }
+.gallery-item:nth-child(1) { grid-column: 1/6;  grid-row: 1/3; height: 602px; }
+.gallery-item:nth-child(2) { grid-column: 6/9;  grid-row: 1; }
+.gallery-item:nth-child(3) { grid-column: 9/13; grid-row: 1; }
+.gallery-item:nth-child(4) { grid-column: 6/10; grid-row: 2; }
+.gallery-item:nth-child(5) { grid-column: 10/13; grid-row: 2; }
+
+/* ─── BOOKING / CONTACT ─── */
+.booking {
+  padding: 160px 0;
+  background: var(--warm-white);
+}
+.booking-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.booking-info .section-title { margin-bottom: 24px; }
+.booking-info p {
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--text-body);
+  margin-bottom: 32px;
+}
+.booking-direct {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.booking-direct-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--cream);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.booking-direct-item:hover { background: var(--sand); }
+.booking-direct-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--olive);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.booking-direct-text {
+  flex: 1;
+}
+.booking-direct-label {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.booking-direct-value {
+  font-size: 19px;
+  font-weight: 300;
+  color: var(--olive);
+}
+.booking-direct-arrow {
+  color: var(--gold);
+  font-size: 18px;
+}
+
+/* ─── CONTACT FORM ─── */
+.contact-form-wrap {
+  background: var(--olive);
+  padding: 48px;
+}
+.contact-form-title {
+  font-family: var(--display);
+  font-size: 34px;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+.contact-form-sub {
+  font-size: 17px;
+  font-style: italic;
+  color: rgba(245,240,232,0.6);
+  margin-bottom: 32px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.form-group label {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(184,150,90,0.25);
+  color: var(--cream);
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 300;
+  padding: 14px 18px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  width: 100%;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(245,240,232,0.3);
+  font-style: italic;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+  background: rgba(255,255,255,0.1);
+}
+.form-group select option { background: var(--olive); color: var(--cream); }
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-submit {
+  width: 100%;
+  background: var(--gold);
+  border: none;
+  color: var(--olive);
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 18px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+.form-submit:hover { background: var(--gold-light); }
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--gold-light);
+  font-size: 18px;
+  font-style: italic;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--charcoal);
+  padding: 80px 0 40px;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(184,150,90,0.15);
+  margin-bottom: 40px;
+}
+.footer-brand .footer-logo {
+  font-family: var(--display);
+  font-size: 28px;
+  color: var(--cream);
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+.footer-brand .footer-logo-sub {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--gold-light);
+  letter-spacing: 0.15em;
+  margin-bottom: 24px;
+}
+.footer-brand p {
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(245,240,232,0.5);
+  max-width: 280px;
+}
+.footer-col-title {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-col ul a {
+  font-size: 17px;
+  font-weight: 300;
+  color: rgba(245,240,232,0.55);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-col ul a:hover { color: var(--gold-light); }
+.footer-contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+.footer-contact-item .label {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.footer-contact-item a,
+.footer-contact-item span {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(245,240,232,0.55);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-contact-item a:hover { color: var(--gold-light); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-bottom-left {
+  font-size: 15px;
+  color: rgba(245,240,232,0.3);
+  font-weight: 300;
+}
+.footer-sinnvoll {
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  color: rgba(245,240,232,0.25);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-sinnvoll a {
+  color: rgba(184,150,90,0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-sinnvoll a:hover { color: var(--gold-light); }
+.social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+.social-links a {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(184,150,90,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(245,240,232,0.4);
+  text-decoration: none;
+  font-size: 14px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.social-links a:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ─── PANEL OVERLAY ─── */
+.panel-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.panel-overlay.active { display: flex; }
+.panel-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(26,26,20,0.85);
+  backdrop-filter: blur(8px);
+}
+.panel {
+  position: relative;
+  z-index: 1;
+  background: var(--warm-white);
+  max-width: 620px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 56px;
+  animation: panelIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(24px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.panel-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--olive);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+.panel-close:hover { color: var(--gold); }
+.panel-tag {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.panel-title {
+  font-family: var(--display);
+  font-size: 36px;
+  color: var(--olive);
+  margin-bottom: 20px;
+  line-height: 1;
+}
+.panel-body {
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--text-body);
+}
+.panel-body p { margin-bottom: 16px; }
+.panel-features {
+  list-style: none;
+  margin: 20px 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.panel-features li {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--olive-light);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.panel-features li::before {
+  content: '◆';
+  font-size: 7px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ─── FADE IN ON SCROLL ─── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  nav.scrolled { padding: 10px 24px; }
+  .nav-links { display: none; }
+  .hero-content { padding: 0 24px 80px; }
+  .hero-scroll { right: 24px; }
+  .section-inner { padding: 0 24px; }
+  .philosophy-grid,
+  .booking-inner,
+  .restaurant-inner,
+  .dest-cards,
+  .rooms-grid { grid-template-columns: 1fr; }
+  .restaurant-img { height: 360px; }
+  .restaurant-img::after { display: none; }
+  .restaurant-content { padding: 48px 24px; }
+  .gallery-mosaic {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .gallery-item { grid-column: auto !important; grid-row: auto !important; height: 200px !important; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .products-grid { grid-template-columns: 1fr 1fr; }
+  .exp-layout { grid-template-columns: 1fr; }
+  .exp-sticky { position: static; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .panel { padding: 36px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <span class="logo-main">CASA PALMERI</span>
+    <span class="logo-tenuta" data-i18n="nav_tenuta">& Tenuta Palmeri · Sicilia</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#destinations" data-i18n="nav_dest">Destinazioni</a></li>
+    <li><a href="#rooms" data-i18n="nav_rooms">Camere</a></li>
+    <li><a href="#experiences" data-i18n="nav_exp">Esperienze</a></li>
+    <li><a href="#restaurant" data-i18n="nav_rest">Ristorante</a></li>
+    <li><a href="#products" data-i18n="nav_wines">Vini & Prodotti</a></li>
+  </ul>
+  <a href="#booking" class="nav-book" data-i18n="nav_book">Prenota</a>
+  <div class="lang-bar">
+    <button class="active" onclick="setLang('it')">IT</button>
+    <button onclick="setLang('de')">DE</button>
+    <button onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow" data-i18n="hero_eyebrow">Roma · Sicilia · Agriturismo di Lusso</div>
+    <h1 class="hero-title">
+      Casa<br><em>Palmeri</em>
+    </h1>
+    <p class="hero-sub" data-i18n="hero_sub">Dove il paesaggio mediterraneo incontra l'ospitalità autentica. Vivi l'Italia nella sua essenza più pura.</p>
+    <div class="hero-ctas">
+      <a href="#booking" class="btn-primary" data-i18n="hero_cta1">Prenota il tuo soggiorno</a>
+      <a href="#experiences" class="btn-outline" data-i18n="hero_cta2">Scopri le esperienze</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span data-i18n="scroll">Scopri</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="tickerTrack">
+    <!-- filled by JS -->
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="about">
+  <div class="section-inner">
+    <div class="philosophy-grid">
+      <div class="philosophy-text fade-up">
+        <div class="section-label" data-i18n="phil_label">La nostra storia</div>
+        <h2 class="section-title" data-i18n="phil_title">Un progetto <em>nato dall'amore</em> per la terra</h2>
+        <p data-i18n="phil_p1">La famiglia Breitschmid coltiva da generazioni il rispetto per la natura e la passione per il vino biologico. Dalla Svizzera alla Sicilia, questo amore ha trovato casa tra gli ulivi, i vigneti e i profumi della Tenuta Palmeri ad Avola.</p>
+        <p data-i18n="phil_p2">Casa Palmeri nasce da questa visione: creare spazi dove ogni ospite possa vivere l'Italia autentica — non come turista, ma come parte di una comunità che <strong>produce, coltiva e condivide</strong>.</p>
+        <div class="philosophy-quote">
+          <blockquote data-i18n="phil_quote">"Ogni bottiglia che lascia la nostra tenuta porta con sé il calore del sole siciliano, la cura delle nostre mani e il rispetto per una terra straordinaria."</blockquote>
+          <cite>— Familie Breitschmid</cite>
+        </div>
+      </div>
+      <div class="philosophy-img fade-up">
+        <img src="https://images.squarespace-cdn.com/content/v1/5fb3e03d7a635c7f4f76f578/fc00a89e-b33c-4d93-b4bd-ff0b79bf2f94/210413_TenutaPalmeri_637_preview.jpg"
+             alt="Tenuta Palmeri, Avola">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="destinations" id="destinations">
+  <div class="section-inner">
+    <div class="section-label fade-up" data-i18n="dest_label">Le nostre destinazioni</div>
+    <h2 class="section-title fade-up" data-i18n="dest_title">Due luoghi.<br><em>Un'anima.</em></h2>
+  </div>
+  <div class="dest-cards fade-up">
+    <div class="dest-card" onclick="openPanel('roma')">
+      <img src="https://casapalmeri.it/wp-content/uploads/2025/01/monte-del-gallo-161.jpg" alt="Casa Palmeri Roma">
+      <div class="dest-card-overlay">
+        <div class="dest-tag" data-i18n="dest_roma_tag">Roma, Italia</div>
+        <div class="dest-name">Casa Palmeri<br><em style="font-family:var(--serif);font-style:italic;font-size:26px;font-weight:300;color:var(--gold-light)">Roma</em></div>
+        <p class="dest-desc" data-i18n="dest_roma_desc">Camere intime nel cuore della Città Eterna. Giardino privato, design senza tempo, a passi dai luoghi più iconici.</p>
+        <span class="dest-link" data-i18n="dest_discover">Scopri le camere</span>
+      </div>
+    </div>
+    <div class="dest-card" onclick="openPanel('sicilia')">
+      <img src="https://images.squarespace-cdn.com/content/v1/5fb3e03d7a635c7f4f76f578/69bbd8b6-1479-4eec-bc79-25c0af0a9324/Palmeri-LifeAtPalermi-20.jpg" alt="Tenuta Palmeri Sicilia">
+      <div class="dest-card-overlay">
+        <div class="dest-tag" data-i18n="dest_sic_tag">Sicilia, Italia</div>
+        <div class="dest-name">Tenuta Palmeri<br><em style="font-family:var(--serif);font-style:italic;font-size:26px;font-weight:300;color:var(--gold-light)">Avola & Noto</em></div>
+        <p class="dest-desc" data-i18n="dest_sic_desc">Suites di lusso tra i vigneti biologici di Avola. Vivi il ritmo lento della campagna siciliana — vino, olio e silenzio.</p>
+        <span class="dest-link" data-i18n="dest_discover2">Scopri le suite</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS -->
+<section class="rooms" id="rooms">
+  <div class="section-inner">
+    <div class="rooms-header fade-up">
+      <div class="section-label" data-i18n="rooms_label">Le camere</div>
+      <h2 class="section-title" data-i18n="rooms_title">Spazi <em>progettati</em> per il benessere</h2>
+      <p data-i18n="rooms_sub">Ogni camera è un invito a rallentare, a sentire il profumo del posto, a lasciarsi avvolgere da materiali naturali e design autentico.</p>
+    </div>
+    <div class="rooms-grid fade-up">
+      <!-- ROMA: Il Melograno -->
+      <div class="room-card">
+        <div class="room-card-img">
+          <img src="https://casapalmeri.it/wp-content/uploads/2025/01/monte-del-gallo-149.jpg" alt="Il Melograno Roma">
+        </div>
+        <div class="room-card-body">
+          <div class="room-card-tag" data-i18n="room1_loc">Roma — Piano giardino</div>
+          <h3 class="room-card-title">Il Melograno</h3>
+          <p class="room-card-desc" data-i18n="room1_desc">Quattro camere intime al piano giardino. Silenziose, avvolgenti, perfette per un ritiro privato nel verde romano.</p>
+          <a href="#booking" class="room-card-link" data-i18n="book_now">Prenota ora</a>
+        </div>
+      </div>
+      <!-- ROMA: Il Mandorlo -->
+      <div class="room-card">
+        <div class="room-card-img">
+          <img src="https://casapalmeri.it/wp-content/uploads/2024/12/monte-del-gallo-17-1024x683.jpeg" alt="Il Mandorlo Roma">
+        </div>
+        <div class="room-card-body">
+          <div class="room-card-tag" data-i18n="room2_loc">Roma — Con balcone</div>
+          <h3 class="room-card-title">Il Mandorlo</h3>
+          <p class="room-card-desc" data-i18n="room2_desc">Due camere luminose con balcone e vista sul centro storico. Atmosfera romantica, accessibile con ascensore.</p>
+          <a href="#booking" class="room-card-link" data-i18n="book_now">Prenota ora</a>
+        </div>
+      </div>
+      <!-- SICILIA: Suites Noto -->
+      <div class="room-card">
+        <div class="room-card-img">
+          <img src="https://casapalmeri.it/wp-content/uploads/2024/12/Web_IMG73862.jpeg" alt="Suite Noto Sicilia">
+        </div>
+        <div class="room-card-body">
+          <div class="room-card-tag" data-i18n="room3_loc">Sicilia — Noto Barocca</div>
+          <h3 class="room-card-title">Suite Palmeri</h3>
+          <p class="room-card-desc" data-i18n="room3_desc">Suite di lusso nel cuore della Noto barocca. Vasca da bagno elegante, terrazza privata, design che celebra il territorio.</p>
+          <a href="#booking" class="room-card-link" data-i18n="book_now">Prenota ora</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCES -->
+<section class="experiences" id="experiences">
+  <div class="section-inner">
+    <div class="exp-layout">
+      <div class="exp-sticky fade-up">
+        <div class="section-label" data-i18n="exp_label">Esperienze</div>
+        <h2 class="section-title" data-i18n="exp_title">Vivere <em>Palmeri</em></h2>
+        <p data-i18n="exp_sub">Oltre il semplice soggiorno. Immergiti nella cultura contadina siciliana, nei profumi dei vigneti biologici e nei sapori autentici del territorio.</p>
+      </div>
+      <div class="exp-list">
+        <div class="exp-item fade-up">
+          <div class="exp-number">01</div>
+          <div>
+            <h3 class="exp-item-title" data-i18n="exp1_title">Visita alla Tenuta Palmeri</h3>
+            <p class="exp-item-desc" data-i18n="exp1_desc">Un tour esclusivo dei 12 ettari biologici ad Avola. Scopri come nascono i nostri vini, passeggia tra i filari, entra nella cantina dove ogni bottiglia racconta una storia di sole e pazienza.</p>
+          </div>
+        </div>
+        <div class="exp-item fade-up">
+          <div class="exp-number">02</div>
+          <div>
+            <h3 class="exp-item-title" data-i18n="exp2_title">Degustazione dei Vini Bio</h3>
+            <p class="exp-item-desc" data-i18n="exp2_desc">Una degustazione guidata dei nostri migliori vini siciliani — Nero d'Avola, Frappato e rarità biologiche — accompagnata dai prodotti della tenuta: olio, mandorle, confetture artigianali.</p>
+          </div>
+        </div>
+        <div class="exp-item fade-up">
+          <div class="exp-number">03</div>
+          <div>
+            <h3 class="exp-item-title" data-i18n="exp3_title">Cena al Le Quattro Sorelle</h3>
+            <p class="exp-item-desc" data-i18n="exp3_desc">Il ristorante della tenuta porta in tavola il meglio della cucina siciliana, abbinato ai vini Palmeri. Un'esperienza gastronomica che celebra il territorio in ogni piatto.</p>
+          </div>
+        </div>
+        <div class="exp-item fade-up">
+          <div class="exp-number">04</div>
+          <div>
+            <h3 class="exp-item-title" data-i18n="exp4_title">Prodotti della Terra</h3>
+            <p class="exp-item-desc" data-i18n="exp4_desc">Orangen, limoni, albicocche, mandorle, olive — tutto lavorato a mano secondo i principi dell'agricoltura biologica. Porta a casa un pezzo di Sicilia.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESTAURANT -->
+<section class="restaurant" id="restaurant">
+  <div class="restaurant-inner">
+    <div class="restaurant-img">
+      <img src="https://casapalmeri.it/wp-content/uploads/2024/12/Web_IMG7082.jpeg" alt="Le Quattro Sorelle">
+    </div>
+    <div class="restaurant-content fade-up">
+      <div class="restaurant-badge">◆ Ristorante</div>
+      <div class="section-label" data-i18n="rest_label">Cucina del territorio</div>
+      <h2 class="section-title" data-i18n="rest_title">Le Quattro <em>Sorelle</em></h2>
+      <p data-i18n="rest_p1">Nel cuore della Tenuta Palmeri, il ristorante Le Quattro Sorelle è una celebrazione della cucina siciliana autentica. Ingredienti rigorosamente biologici, ricette tramandate di generazione in generazione, abbinate ai vini Palmeri.</p>
+      <p data-i18n="rest_p2">Ogni pasto è un viaggio nei sapori del Mediterraneo — dal mare al vigneto, dalla dispensa della nonna alla tavola dell'ospite.</p>
+      <ul class="restaurant-features">
+        <li data-i18n="rest_f1">Cucina siciliana biologica e stagionale</li>
+        <li data-i18n="rest_f2">Carta dei vini Palmeri — solo biologici</li>
+        <li data-i18n="rest_f3">Terrazza con vista sui vigneti</li>
+        <li data-i18n="rest_f4">Cene private e degustazioni su prenotazione</li>
+      </ul>
+      <a href="#booking" class="btn-primary" data-i18n="rest_cta">Prenota un tavolo</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS / WINES -->
+<section class="products" id="products">
+  <div class="section-inner">
+    <div class="section-label fade-up" data-i18n="prod_label">Vini & Prodotti Bio</div>
+    <h2 class="section-title fade-up" data-i18n="prod_title">Dalla nostra terra<br><em>alla tua tavola</em></h2>
+    <p class="products-intro fade-up" data-i18n="prod_sub">12 ettari di agricoltura biologica certificata ad Avola, Sicilia. Ogni prodotto porta con sé il rispetto per la natura e decenni di esperienza enologica della famiglia Breitschmid.</p>
+    <div class="products-grid fade-up">
+      <div class="product-card">
+        <span class="product-icon">🍷</span>
+        <h3 class="product-name" data-i18n="prod1_name">Nero d'Avola</h3>
+        <p class="product-desc" data-i18n="prod1_desc">Il re dei vini siciliani. Profondo, speziato, con tannini morbidi. Vinificato naturalmente secondo i principi biologici.</p>
+      </div>
+      <div class="product-card">
+        <span class="product-icon">🫒</span>
+        <h3 class="product-name" data-i18n="prod2_name">Olio Extra Vergine</h3>
+        <p class="product-desc" data-i18n="prod2_desc">Olive raccolte a mano, prima spremitura a freddo. Un olio fruttato e delicato che porta il sole di Sicilia direttamente in tavola.</p>
+      </div>
+      <div class="product-card">
+        <span class="product-icon">🌿</span>
+        <h3 class="product-name" data-i18n="prod3_name">Prodotti Artigianali</h3>
+        <p class="product-desc" data-i18n="prod3_desc">Confetture di albicocche, marmellate di arance e limoni, mandorle tostate — tutto lavorato a mano con cura.</p>
+      </div>
+      <div class="product-card">
+        <span class="product-icon">🍇</span>
+        <h3 class="product-name" data-i18n="prod4_name">Vini Bianchi Bio</h3>
+        <p class="product-desc" data-i18n="prod4_desc">Vini freschi e aromatici da uve autoctone siciliane, vinificati con rispetto per il territorio e le sue tradizioni millenarie.</p>
+      </div>
+    </div>
+    <div class="products-ctas fade-up">
+      <a href="https://sitenrain.ch/sortiment" target="_blank" rel="noopener" class="btn-gold" data-i18n="prod_shop">Acquista online</a>
+      <a href="https://www.tenutapalmeri.it" target="_blank" rel="noopener" class="btn-outline-light" data-i18n="prod_tenuta">Visita la Tenuta</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="section-inner">
+    <div class="gallery-header fade-up">
+      <div class="section-label" data-i18n="gall_label">Galleria</div>
+      <h2 class="section-title" data-i18n="gall_title">La bellezza di <em>Palmeri</em></h2>
+    </div>
+  </div>
+  <div class="gallery-mosaic fade-up">
+    <div class="gallery-item">
+      <img src="https://images.squarespace-cdn.com/content/v1/5fb3e03d7a635c7f4f76f578/8e83205f-474e-46d2-8a4f-7c0f39008a16/Palmeri-Views-18.jpg" alt="Tenuta Palmeri vista">
+    </div>
+    <div class="gallery-item">
+      <img src="https://casapalmeri.it/wp-content/uploads/2025/01/monte-del-gallo-99.jpg" alt="Camera Roma">
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.squarespace-cdn.com/content/v1/5fb3e03d7a635c7f4f76f578/36574f9e-e6c2-4d24-ac8c-eeb5eeb6f895/2017-08-25-JI-TP-Wein_05.jpg" alt="Vini Palmeri">
+    </div>
+    <div class="gallery-item">
+      <img src="https://casapalmeri.it/wp-content/uploads/2024/12/monte-del-gallo-23-1024x683.jpeg" alt="Il Mandorlo Roma">
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.squarespace-cdn.com/content/v1/5fb3e03d7a635c7f4f76f578/ec8ba215-3dee-411d-8d6c-66d0fda0c40d/2017-08-25-JI-TP-Gruppe_15.jpg" alt="Tenuta gruppo">
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING & CONTACT -->
+<section class="booking" id="booking">
+  <div class="section-inner">
+    <div class="booking-inner">
+      <div class="booking-info fade-up">
+        <div class="section-label" data-i18n="book_label">Prenotazioni</div>
+        <h2 class="section-title" data-i18n="book_title">Prenota il tuo <em>soggiorno</em></h2>
+        <p data-i18n="book_p">Che tu scelga Roma o la Sicilia, il nostro team è a tua disposizione per creare un soggiorno su misura. Prenota direttamente e goditi le tariffe migliori garantite.</p>
+        <div class="booking-direct">
+          <a href="https://book.octorate.com/octobook/site/reservation/index.xhtml?codice=312169" target="_blank" class="booking-direct-item">
+            <div class="booking-direct-icon">🗓</div>
+            <div class="booking-direct-text">
+              <div class="booking-direct-label" data-i18n="book_system">Sistema di prenotazione</div>
+              <div class="booking-direct-value" data-i18n="book_online">Prenota online — disponibilità in tempo reale</div>
+            </div>
+            <div class="booking-direct-arrow">→</div>
+          </a>
+          <a href="tel:+393922538500" class="booking-direct-item">
+            <div class="booking-direct-icon">📞</div>
+            <div class="booking-direct-text">
+              <div class="booking-direct-label" data-i18n="book_phone_label">Telefono</div>
+              <div class="booking-direct-value">+39 392 25 38 500</div>
+            </div>
+            <div class="booking-direct-arrow">→</div>
+          </a>
+          <a href="mailto:info@casapalmeri.it" class="booking-direct-item">
+            <div class="booking-direct-icon">✉</div>
+            <div class="booking-direct-text">
+              <div class="booking-direct-label" data-i18n="book_email_label">Email</div>
+              <div class="booking-direct-value">info@casapalmeri.it</div>
+            </div>
+            <div class="booking-direct-arrow">→</div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-form-wrap fade-up">
+        <h3 class="contact-form-title" data-i18n="form_title">Scrivici</h3>
+        <p class="contact-form-sub" data-i18n="form_sub">Ti risponderemo entro 24 ore.</p>
+        <div id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label data-i18n="form_name">Nome</label>
+              <input type="text" id="f_name" data-i18n-ph="form_name_ph" placeholder="Il tuo nome">
+            </div>
+            <div class="form-group">
+              <label data-i18n="form_email">Email</label>
+              <input type="email" id="f_email" data-i18n-ph="form_email_ph" placeholder="tua@email.it">
+            </div>
+          </div>
+          <div class="form-group">
+            <label data-i18n="form_dest">Destinazione</label>
+            <select id="f_dest">
+              <option value="" data-i18n="form_dest_opt0">— Seleziona —</option>
+              <option value="roma" data-i18n="form_dest_opt1">Casa Palmeri Roma</option>
+              <option value="sicilia" data-i18n="form_dest_opt2">Tenuta Palmeri Sicilia</option>
+              <option value="entrambi" data-i18n="form_dest_opt3">Entrambe le destinazioni</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label data-i18n="form_arrival">Arrivo</label>
+              <input type="date" id="f_arrival">
+            </div>
+            <div class="form-group">
+              <label data-i18n="form_departure">Partenza</label>
+              <input type="date" id="f_departure">
+            </div>
+          </div>
+          <div class="form-group">
+            <label data-i18n="form_msg">Messaggio</label>
+            <textarea id="f_msg" data-i18n-ph="form_msg_ph" placeholder="Raccontaci cosa stai cercando..."></textarea>
+          </div>
+          <button class="form-submit" onclick="submitForm()" data-i18n="form_submit">Invia richiesta</button>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <p data-i18n="form_ok">✓ Grazie! Ti risponderemo entro 24 ore.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">CASA PALMERI</div>
+        <div class="footer-logo-sub">& Tenuta Palmeri · Sicilia</div>
+        <p data-i18n="footer_brand_desc">Ospitalità autentica nel cuore dell'Italia — Roma e Sicilia. Agriturismo di lusso, vini biologici, sapori del territorio.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/casapalmeri/" target="_blank" rel="noopener" title="Instagram">in</a>
+          <a href="https://www.facebook.com/profile.php?id=61560228309914" target="_blank" rel="noopener" title="Facebook">fb</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title" data-i18n="footer_nav">Navigazione</div>
+        <ul>
+          <li><a href="#about" data-i18n="footer_about">La nostra storia</a></li>
+          <li><a href="#rooms" data-i18n="footer_rooms">Le camere</a></li>
+          <li><a href="#experiences" data-i18n="footer_exp">Esperienze</a></li>
+          <li><a href="#restaurant" data-i18n="footer_rest">Ristorante</a></li>
+          <li><a href="#products" data-i18n="footer_wines">Vini & Prodotti</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title" data-i18n="footer_links">Partner</div>
+        <ul>
+          <li><a href="https://www.breitschmid-heiniger.ch" target="_blank" rel="noopener">Breitschmid-Heiniger</a></li>
+          <li><a href="https://www.tenutapalmeri.it" target="_blank" rel="noopener">Tenuta Palmeri</a></li>
+          <li><a href="https://sitenrain.ch/sortiment" target="_blank" rel="noopener" data-i18n="footer_shop">Online Shop</a></li>
+          <li><a href="https://www.enotecapalmeri.ch" target="_blank" rel="noopener">Enoteca Basel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title" data-i18n="footer_contact">Contatti</div>
+        <div class="footer-contact-item">
+          <span class="label">Email</span>
+          <a href="mailto:info@casapalmeri.it">info@casapalmeri.it</a>
+        </div>
+        <div class="footer-contact-item">
+          <span class="label" data-i18n="footer_tel">Telefono</span>
+          <a href="tel:+393922538500">+39 392 25 38 500</a>
+        </div>
+        <div class="footer-contact-item">
+          <span class="label">Roma</span>
+          <span>Monte del Gallo, Roma</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="label">Sicilia</span>
+          <span>Avola & Noto, Sicilia</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">© 2026 Casa Palmeri · Tenuta Palmeri · Palmeri Energy Green S.R.L.</div>
+      <div class="footer-sinnvoll">
+        <span data-i18n="footer_partner">In partnership with</span>
+        <a href="https://sinnvollgastro.ch" target="_blank" rel="noopener">■● Sinnvoll Gastro</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- DESTINATION PANELS -->
+<div class="panel-overlay" id="panelOverlay">
+  <div class="panel-backdrop" onclick="closePanel()"></div>
+  <div class="panel" id="panelContent">
+    <button class="panel-close" onclick="closePanel()">✕</button>
+    <div id="panelBody"></div>
+  </div>
+</div>
+
+<script>
+// ─── TRANSLATIONS ───────────────────────────────────────────────────────────
+const i18n = {
+  it: {
+    nav_tenuta: '& Tenuta Palmeri · Sicilia',
+    nav_dest: 'Destinazioni', nav_rooms: 'Camere', nav_exp: 'Esperienze',
+    nav_rest: 'Ristorante', nav_wines: 'Vini & Prodotti', nav_book: 'Prenota',
+    hero_eyebrow: 'Roma · Sicilia · Agriturismo di Lusso',
+    hero_sub: 'Dove il paesaggio mediterraneo incontra l\'ospitalità autentica. Vivi l\'Italia nella sua essenza più pura.',
+    hero_cta1: 'Prenota il tuo soggiorno', hero_cta2: 'Scopri le esperienze',
+    scroll: 'Scopri',
+    phil_label: 'La nostra storia',
+    phil_title: 'Un progetto nato dall\'amore per la terra',
+    phil_p1: 'La famiglia Breitschmid coltiva da generazioni il rispetto per la natura e la passione per il vino biologico. Dalla Svizzera alla Sicilia, questo amore ha trovato casa tra gli ulivi, i vigneti e i profumi della Tenuta Palmeri ad Avola.',
+    phil_p2: 'Casa Palmeri nasce da questa visione: creare spazi dove ogni ospite possa vivere l\'Italia autentica — non come turista, ma come parte di una comunità che produce, coltiva e condivide.',
+    phil_quote: '"Ogni bottiglia che lascia la nostra tenuta porta con sé il calore del sole siciliano, la cura delle nostre mani e il rispetto per una terra straordinaria."',
+    dest_label: 'Le nostre destinazioni', dest_title: 'Due luoghi. Un\'anima.',
+    dest_roma_tag: 'Roma, Italia',
+    dest_roma_desc: 'Camere intime nel cuore della Città Eterna. Giardino privato, design senza tempo, a passi dai luoghi più iconici.',
+    dest_discover: 'Scopri le camere',
+    dest_sic_tag: 'Sicilia, Italia',
+    dest_sic_desc: 'Suites di lusso tra i vigneti biologici di Avola. Vivi il ritmo lento della campagna siciliana — vino, olio e silenzio.',
+    dest_discover2: 'Scopri le suite',
+    rooms_label: 'Le camere', rooms_title: 'Spazi progettati per il benessere',
+    rooms_sub: 'Ogni camera è un invito a rallentare, a sentire il profumo del posto, a lasciarsi avvolgere da materiali naturali e design autentico.',
+    room1_loc: 'Roma — Piano giardino', room1_desc: 'Quattro camere intime al piano giardino. Silenziose, avvolgenti, perfette per un ritiro privato nel verde romano.',
+    room2_loc: 'Roma — Con balcone', room2_desc: 'Due camere luminose con balcone e vista sul centro storico. Atmosfera romantica, accessibile con ascensore.',
+    room3_loc: 'Sicilia — Noto Barocca', room3_desc: 'Suite di lusso nel cuore della Noto barocca. Vasca da bagno elegante, terrazza privata, design che celebra il territorio.',
+    book_now: 'Prenota ora',
+    exp_label: 'Esperienze', exp_title: 'Vivere Palmeri',
+    exp_sub: 'Oltre il semplice soggiorno. Immergiti nella cultura contadina siciliana, nei profumi dei vigneti biologici e nei sapori autentici del territorio.',
+    exp1_title: 'Visita alla Tenuta Palmeri', exp1_desc: 'Un tour esclusivo dei 12 ettari biologici ad Avola. Scopri come nascono i nostri vini, passeggia tra i filari, entra nella cantina dove ogni bottiglia racconta una storia di sole e pazienza.',
+    exp2_title: 'Degustazione dei Vini Bio', exp2_desc: 'Una degustazione guidata dei nostri migliori vini siciliani — Nero d\'Avola, Frappato e rarità biologiche — accompagnata dai prodotti della tenuta: olio, mandorle, confetture artigianali.',
+    exp3_title: 'Cena al Le Quattro Sorelle', exp3_desc: 'Il ristorante della tenuta porta in tavola il meglio della cucina siciliana, abbinato ai vini Palmeri. Un\'esperienza gastronomica che celebra il territorio in ogni piatto.',
+    exp4_title: 'Prodotti della Terra', exp4_desc: 'Arance, limoni, albicocche, mandorle, olive — tutto lavorato a mano secondo i principi dell\'agricoltura biologica. Porta a casa un pezzo di Sicilia.',
+    rest_label: 'Cucina del territorio', rest_title: 'Le Quattro Sorelle',
+    rest_p1: 'Nel cuore della Tenuta Palmeri, il ristorante Le Quattro Sorelle è una celebrazione della cucina siciliana autentica. Ingredienti rigorosamente biologici, ricette tramandate di generazione in generazione, abbinate ai vini Palmeri.',
+    rest_p2: 'Ogni pasto è un viaggio nei sapori del Mediterraneo — dal mare al vigneto, dalla dispensa della nonna alla tavola dell\'ospite.',
+    rest_f1: 'Cucina siciliana biologica e stagionale', rest_f2: 'Carta dei vini Palmeri — solo biologici',
+    rest_f3: 'Terrazza con vista sui vigneti', rest_f4: 'Cene private e degustazioni su prenotazione',
+    rest_cta: 'Prenota un tavolo',
+    prod_label: 'Vini & Prodotti Bio', prod_title: 'Dalla nostra terra alla tua tavola',
+    prod_sub: '12 ettari di agricoltura biologica certificata ad Avola, Sicilia. Ogni prodotto porta con sé il rispetto per la natura e decenni di esperienza enologica della famiglia Breitschmid.',
+    prod1_name: 'Nero d\'Avola', prod1_desc: 'Il re dei vini siciliani. Profondo, speziato, con tannini morbidi. Vinificato naturalmente secondo i principi biologici.',
+    prod2_name: 'Olio Extra Vergine', prod2_desc: 'Olive raccolte a mano, prima spremitura a freddo. Un olio fruttato e delicato che porta il sole di Sicilia direttamente in tavola.',
+    prod3_name: 'Prodotti Artigianali', prod3_desc: 'Confetture di albicocche, marmellate di arance e limoni, mandorle tostate — tutto lavorato a mano con cura.',
+    prod4_name: 'Vini Bianchi Bio', prod4_desc: 'Vini freschi e aromatici da uve autoctone siciliane, vinificati con rispetto per il territorio e le sue tradizioni millenarie.',
+    prod_shop: 'Acquista online', prod_tenuta: 'Visita la Tenuta',
+    gall_label: 'Galleria', gall_title: 'La bellezza di Palmeri',
+    book_label: 'Prenotazioni', book_title: 'Prenota il tuo soggiorno',
+    book_p: 'Che tu scelga Roma o la Sicilia, il nostro team è a tua disposizione per creare un soggiorno su misura. Prenota direttamente e goditi le tariffe migliori garantite.',
+    book_system: 'Sistema di prenotazione', book_online: 'Prenota online — disponibilità in tempo reale',
+    book_phone_label: 'Telefono', book_email_label: 'Email',
+    form_title: 'Scrivici', form_sub: 'Ti risponderemo entro 24 ore.',
+    form_name: 'Nome', form_name_ph: 'Il tuo nome', form_email: 'Email', form_email_ph: 'tua@email.it',
+    form_dest: 'Destinazione', form_dest_opt0: '— Seleziona —', form_dest_opt1: 'Casa Palmeri Roma',
+    form_dest_opt2: 'Tenuta Palmeri Sicilia', form_dest_opt3: 'Entrambe le destinazioni',
+    form_arrival: 'Arrivo', form_departure: 'Partenza',
+    form_msg: 'Messaggio', form_msg_ph: 'Raccontaci cosa stai cercando...',
+    form_submit: 'Invia richiesta', form_ok: '✓ Grazie! Ti risponderemo entro 24 ore.',
+    footer_brand_desc: 'Ospitalità autentica nel cuore dell\'Italia — Roma e Sicilia. Agriturismo di lusso, vini biologici, sapori del territorio.',
+    footer_nav: 'Navigazione', footer_about: 'La nostra storia', footer_rooms: 'Le camere',
+    footer_exp: 'Esperienze', footer_rest: 'Ristorante', footer_wines: 'Vini & Prodotti',
+    footer_links: 'Partner', footer_shop: 'Online Shop',
+    footer_contact: 'Contatti', footer_tel: 'Telefono',
+    footer_partner: 'In partnership with',
+    ticker: ['Agriturismo di Lusso', 'Vini Biologici Siciliani', 'Tenuta Palmeri · Avola', 'Casa Palmeri Roma', 'Nero d\'Avola', 'Olio Biologico', 'Le Quattro Sorelle', 'Cucina Siciliana', 'Noto Barocca', 'Handarbeit · Herzblut'],
+    panel_roma_tag: 'Roma, Italia',
+    panel_roma_title: 'Casa Palmeri Roma',
+    panel_roma_body: '<p>Nel quartiere di Monte del Gallo, a due passi dai Musei Vaticani e dal centro storico, Casa Palmeri Roma offre un\'ospitalità intima e raffinata in un contesto esclusivo.</p><p>Sei camere distribuite su due tipologie — Il Melograno al piano giardino e Il Mandorlo con balcone — ciascuna progettata con cura per celebrare l\'essenza locale.</p>',
+    panel_roma_features: ['Giardino privato per tutti gli ospiti', 'Ascensore per le camere con balcone', 'Design timeless e materiali naturali', 'Wi-Fi illimitato', 'Culla disponibile su richiesta', 'Servizio transfer aeroporto'],
+    panel_sic_tag: 'Avola & Noto, Sicilia',
+    panel_sic_title: 'Tenuta Palmeri Sicilia',
+    panel_sic_body: '<p>Immersa nei 12 ettari biologici ad Avola, la Tenuta Palmeri è molto più di un luogo dove dormire. È un\'esperienza totale nel cuore della Sicilia autentica — tra vigneti, ulivi profumati e cieli stellati senza paragone.</p><p>Le suite di Noto si trovano nel cuore del centro barocco, Patrimonio UNESCO, offrendo un\'atmosfera romantica e senza tempo.</p>',
+    panel_sic_features: ['Suite di lusso a Noto Barocca (UNESCO)', 'Visita guidata alla cantina e ai vigneti', 'Degustazioni di vini biologici', 'Ristorante Le Quattro Sorelle in tenuta', 'Prodotti biologici della tenuta in omaggio', 'Piscina e spazi all\'aperto'],
+  },
+  de: {
+    nav_tenuta: '& Tenuta Palmeri · Sizilien',
+    nav_dest: 'Destinationen', nav_rooms: 'Zimmer', nav_exp: 'Erlebnisse',
+    nav_rest: 'Restaurant', nav_wines: 'Weine & Produkte', nav_book: 'Buchen',
+    hero_eyebrow: 'Rom · Sizilien · Luxury Agrotourismus',
+    hero_sub: 'Wo mediterrane Landschaft auf echte Gastfreundschaft trifft. Erlebe Italien in seiner reinsten Form.',
+    hero_cta1: 'Deinen Aufenthalt buchen', hero_cta2: 'Erlebnisse entdecken',
+    scroll: 'Entdecken',
+    phil_label: 'Unsere Geschichte',
+    phil_title: 'Ein Projekt geboren aus Liebe zur Erde',
+    phil_p1: 'Die Familie Breitschmid pflegt seit Generationen den Respekt vor der Natur und die Leidenschaft für biologischen Wein. Von der Schweiz nach Sizilien hat diese Liebe ein Zuhause gefunden — zwischen Olivenbäumen, Weinbergen und den Düften der Tenuta Palmeri in Avola.',
+    phil_p2: 'Casa Palmeri entstand aus dieser Vision: Räume schaffen, in denen jeder Gast das authentische Italien erleben kann — nicht als Tourist, sondern als Teil einer Gemeinschaft, die produziert, anbaut und teilt.',
+    phil_quote: '"Jede Flasche, die unser Weingut verlässt, trägt die Wärme der sizilianischen Sonne, die Sorgfalt unserer Hände und den Respekt für dieses aussergewöhnliche Land in sich."',
+    dest_label: 'Unsere Destinationen', dest_title: 'Zwei Orte. Eine Seele.',
+    dest_roma_tag: 'Rom, Italien',
+    dest_roma_desc: 'Intime Zimmer im Herzen der Ewigen Stadt. Privater Garten, zeitloses Design, einen Steinwurf von den ikonischsten Sehenswürdigkeiten.',
+    dest_discover: 'Zimmer entdecken',
+    dest_sic_tag: 'Sizilien, Italien',
+    dest_sic_desc: 'Luxus-Suites inmitten der biologischen Weinberge von Avola. Erlebe das langsame Tempo des sizilianischen Landlebens — Wein, Öl und Stille.',
+    dest_discover2: 'Suites entdecken',
+    rooms_label: 'Die Zimmer', rooms_title: 'Räume für dein Wohlbefinden',
+    rooms_sub: 'Jedes Zimmer ist eine Einladung, langsamer zu werden, den Duft des Ortes zu spüren, sich von natürlichen Materialien und authentischem Design einhüllen zu lassen.',
+    room1_loc: 'Rom — Gartenebene', room1_desc: 'Vier intime Zimmer auf Gartenebene. Ruhig, geborgen, perfekt für einen privaten Rückzug im römischen Grün.',
+    room2_loc: 'Rom — Mit Balkon', room2_desc: 'Zwei helle Zimmer mit Balkon und Blick auf die Altstadt. Romantische Atmosphäre, bequem mit dem Lift erreichbar.',
+    room3_loc: 'Sizilien — Barockes Noto', room3_desc: 'Luxussuite im Herzen des barocken Noto. Elegante Badewanne, private Terrasse, Design, das das Territorium feiert.',
+    book_now: 'Jetzt buchen',
+    exp_label: 'Erlebnisse', exp_title: 'Palmeri erleben',
+    exp_sub: 'Mehr als nur ein Aufenthalt. Tauche ein in die sizilianische Bauernkultur, die Düfte der biologischen Weinberge und die authentischen Aromen des Territoriums.',
+    exp1_title: 'Besuch der Tenuta Palmeri', exp1_desc: 'Eine exklusive Tour durch die 12 biologischen Hektar in Avola. Entdecke, wie unsere Weine entstehen, spaziere durch die Weinreihen, betritt den Keller, wo jede Flasche eine Geschichte von Sonne und Geduld erzählt.',
+    exp2_title: 'Bio-Weinprobe', exp2_desc: 'Eine geführte Degustation unserer besten sizilianischen Weine — Nero d\'Avola, Frappato und biologische Raritäten — begleitet von Produkten der Tenuta: Öl, Mandeln, handgemachte Konfitüren.',
+    exp3_title: 'Abendessen im Le Quattro Sorelle', exp3_desc: 'Das Restaurant der Tenuta bringt das Beste der sizilianischen Küche auf den Tisch, kombiniert mit Palmeri Weinen. Ein gastronomisches Erlebnis, das das Territorium auf jedem Teller feiert.',
+    exp4_title: 'Produkte der Erde', exp4_desc: 'Orangen, Zitronen, Aprikosen, Mandeln, Oliven — alles von Hand verarbeitet nach den Prinzipien des biologischen Landbaus. Bringe ein Stück Sizilien nach Hause.',
+    rest_label: 'Küche des Territoriums', rest_title: 'Le Quattro Sorelle',
+    rest_p1: 'Im Herzen der Tenuta Palmeri ist das Restaurant Le Quattro Sorelle eine Hommage an die authentische sizilianische Küche. Streng biologische Zutaten, von Generation zu Generation überlieferte Rezepte, kombiniert mit Palmeri Weinen.',
+    rest_p2: 'Jede Mahlzeit ist eine Reise durch die Aromen des Mittelmeers — vom Meer zum Weinberg, von der Speisekammer der Grossmutter auf den Tisch des Gastes.',
+    rest_f1: 'Biologische, saisonale sizilianische Küche', rest_f2: 'Weinkarte Palmeri — ausschliesslich biologisch',
+    rest_f3: 'Terrasse mit Blick auf die Weinberge', rest_f4: 'Private Abendessen und Degustationen auf Anfrage',
+    rest_cta: 'Einen Tisch reservieren',
+    prod_label: 'Weine & Bio-Produkte', prod_title: 'Von unserer Erde auf deinen Tisch',
+    prod_sub: '12 Hektar zertifizierter biologischer Landwirtschaft in Avola, Sizilien. Jedes Produkt trägt den Respekt für die Natur und Jahrzehnte önologischer Erfahrung der Familie Breitschmid.',
+    prod1_name: 'Nero d\'Avola', prod1_desc: 'Der König der sizilianischen Weine. Tief, würzig, mit weichen Tanninen. Natürlich vinifiziert nach biologischen Grundsätzen.',
+    prod2_name: 'Natives Olivenöl Extra', prod2_desc: 'Von Hand gelesene Oliven, erste Kaltpressung. Ein fruchtiges, zartes Öl, das die Sonne Siziliens direkt auf den Tisch bringt.',
+    prod3_name: 'Handgemachte Produkte', prod3_desc: 'Aprikosenmarmelade, Orangen- und Zitronenmarmeladen, geröstete Mandeln — alles sorgfältig von Hand gefertigt.',
+    prod4_name: 'Biologische Weissweine', prod4_desc: 'Frische, aromatische Weine aus einheimischen sizilianischen Trauben, vinifiziert mit Respekt für das Territorium und seine jahrtausendealten Traditionen.',
+    prod_shop: 'Online kaufen', prod_tenuta: 'Tenuta besuchen',
+    gall_label: 'Galerie', gall_title: 'Die Schönheit von Palmeri',
+    book_label: 'Buchung', book_title: 'Deinen Aufenthalt buchen',
+    book_p: 'Ob du Rom oder Sizilien wählst, unser Team steht dir zur Verfügung, um einen massgeschneiderten Aufenthalt zu gestalten. Buche direkt und geniesse die garantiert besten Preise.',
+    book_system: 'Buchungssystem', book_online: 'Online buchen — Verfügbarkeit in Echtzeit',
+    book_phone_label: 'Telefon', book_email_label: 'E-Mail',
+    form_title: 'Schreib uns', form_sub: 'Wir antworten innerhalb von 24 Stunden.',
+    form_name: 'Name', form_name_ph: 'Dein Name', form_email: 'E-Mail', form_email_ph: 'deine@email.ch',
+    form_dest: 'Destination', form_dest_opt0: '— Auswählen —', form_dest_opt1: 'Casa Palmeri Rom',
+    form_dest_opt2: 'Tenuta Palmeri Sizilien', form_dest_opt3: 'Beide Destinationen',
+    form_arrival: 'Anreise', form_departure: 'Abreise',
+    form_msg: 'Nachricht', form_msg_ph: 'Erzähl uns, was du suchst...',
+    form_submit: 'Anfrage senden', form_ok: '✓ Danke! Wir melden uns innerhalb von 24 Stunden.',
+    footer_brand_desc: 'Authentische Gastfreundschaft im Herzen Italiens — Rom und Sizilien. Luxus-Agrotourismus, biologische Weine, Aromen des Territoriums.',
+    footer_nav: 'Navigation', footer_about: 'Unsere Geschichte', footer_rooms: 'Die Zimmer',
+    footer_exp: 'Erlebnisse', footer_rest: 'Restaurant', footer_wines: 'Weine & Produkte',
+    footer_links: 'Partner', footer_shop: 'Online Shop',
+    footer_contact: 'Kontakt', footer_tel: 'Telefon',
+    footer_partner: 'In Partnerschaft mit',
+    ticker: ['Luxury Agrotourismus', 'Biologische Sizilianische Weine', 'Tenuta Palmeri · Avola', 'Casa Palmeri Rom', 'Nero d\'Avola', 'Biologisches Olivenöl', 'Le Quattro Sorelle', 'Sizilianische Küche', 'Barockes Noto', 'Handarbeit · Herzblut'],
+    panel_roma_tag: 'Rom, Italien',
+    panel_roma_title: 'Casa Palmeri Rom',
+    panel_roma_body: '<p>Im Quartier Monte del Gallo, einen Steinwurf von den Vatikanischen Museen und dem historischen Zentrum entfernt, bietet Casa Palmeri Rom eine intime und raffinierte Gastfreundschaft in einem exklusiven Umfeld.</p><p>Sechs Zimmer in zwei Typen — Il Melograno auf Gartenebene und Il Mandorlo mit Balkon — jeweils sorgfältig gestaltet, um die lokale Essenz zu feiern.</p>',
+    panel_roma_features: ['Privater Garten für alle Gäste', 'Lift für Zimmer mit Balkon', 'Zeitloses Design und natürliche Materialien', 'Unbegrenztes WLAN', 'Kinderbett auf Anfrage', 'Flughafentransfer-Service'],
+    panel_sic_tag: 'Avola & Noto, Sizilien',
+    panel_sic_title: 'Tenuta Palmeri Sizilien',
+    panel_sic_body: '<p>Eingebettet in die 12 biologischen Hektar in Avola ist die Tenuta Palmeri viel mehr als ein Ort zum Schlafen. Es ist ein Gesamterlebnis im Herzen des authentischen Siziliens — zwischen Weinbergen, duftenden Olivenbäumen und unvergleichlichen Sternenhimmeln.</p><p>Die Suites in Noto befinden sich im Herzen des barocken Zentrums, UNESCO-Weltkulturerbe, und bieten eine romantische und zeitlose Atmosphäre.</p>',
+    panel_sic_features: ['Luxussuite in Barock-Noto (UNESCO)', 'Geführte Besichtigung von Keller und Weinbergen', 'Biologische Weinproben', 'Restaurant Le Quattro Sorelle auf der Tenuta', 'Biologische Tenuta-Produkte als Willkommensgeschenk', 'Pool und Aussenbereich'],
+  },
+  en: {
+    nav_tenuta: '& Tenuta Palmeri · Sicily',
+    nav_dest: 'Destinations', nav_rooms: 'Rooms', nav_exp: 'Experiences',
+    nav_rest: 'Restaurant', nav_wines: 'Wines & Products', nav_book: 'Book',
+    hero_eyebrow: 'Rome · Sicily · Luxury Agritourism',
+    hero_sub: 'Where the Mediterranean landscape meets authentic hospitality. Experience Italy in its purest essence.',
+    hero_cta1: 'Book your stay', hero_cta2: 'Discover experiences',
+    scroll: 'Discover',
+    phil_label: 'Our story',
+    phil_title: 'A project born from love for the land',
+    phil_p1: 'The Breitschmid family has cultivated respect for nature and a passion for organic wine for generations. From Switzerland to Sicily, this love has found its home among the olive trees, vineyards and scents of Tenuta Palmeri in Avola.',
+    phil_p2: 'Casa Palmeri was born from this vision: to create spaces where every guest can experience authentic Italy — not as a tourist, but as part of a community that produces, cultivates and shares.',
+    phil_quote: '"Every bottle that leaves our estate carries with it the warmth of the Sicilian sun, the care of our hands and the respect for an extraordinary land."',
+    dest_label: 'Our destinations', dest_title: 'Two places. One soul.',
+    dest_roma_tag: 'Rome, Italy',
+    dest_roma_desc: 'Intimate rooms in the heart of the Eternal City. Private garden, timeless design, steps from the most iconic landmarks.',
+    dest_discover: 'Discover the rooms',
+    dest_sic_tag: 'Sicily, Italy',
+    dest_sic_desc: 'Luxury suites among the organic vineyards of Avola. Live the slow rhythm of the Sicilian countryside — wine, oil and silence.',
+    dest_discover2: 'Discover the suites',
+    rooms_label: 'The rooms', rooms_title: 'Spaces designed for wellbeing',
+    rooms_sub: 'Every room is an invitation to slow down, to breathe in the scent of the place, to let yourself be wrapped in natural materials and authentic design.',
+    room1_loc: 'Rome — Garden level', room1_desc: 'Four intimate garden-level rooms. Quiet, welcoming and perfect for a private retreat in the Roman greenery.',
+    room2_loc: 'Rome — With balcony', room2_desc: 'Two bright rooms with balcony and views over the historic centre. Romantic atmosphere, easily reached by lift.',
+    room3_loc: 'Sicily — Baroque Noto', room3_desc: 'Luxury suite in the heart of baroque Noto. Elegant bathtub, private terrace, design that celebrates the territory.',
+    book_now: 'Book now',
+    exp_label: 'Experiences', exp_title: 'Living Palmeri',
+    exp_sub: 'Beyond a simple stay. Immerse yourself in Sicilian farming culture, the scents of organic vineyards and the authentic flavours of the territory.',
+    exp1_title: 'Visit to Tenuta Palmeri', exp1_desc: 'An exclusive tour of the 12 organic hectares in Avola. Discover how our wines are made, walk through the rows, enter the cellar where every bottle tells a story of sun and patience.',
+    exp2_title: 'Organic Wine Tasting', exp2_desc: 'A guided tasting of our finest Sicilian wines — Nero d\'Avola, Frappato and organic rarities — accompanied by estate products: oil, almonds, artisan preserves.',
+    exp3_title: 'Dinner at Le Quattro Sorelle', exp3_desc: 'The estate restaurant brings the best of Sicilian cuisine to the table, paired with Palmeri wines. A gastronomic experience celebrating the territory in every dish.',
+    exp4_title: 'Products of the Earth', exp4_desc: 'Oranges, lemons, apricots, almonds, olives — all processed by hand following the principles of organic farming. Take a piece of Sicily home with you.',
+    rest_label: 'Local cuisine', rest_title: 'Le Quattro Sorelle',
+    rest_p1: 'At the heart of Tenuta Palmeri, restaurant Le Quattro Sorelle is a celebration of authentic Sicilian cuisine. Strictly organic ingredients, recipes handed down from generation to generation, paired with Palmeri wines.',
+    rest_p2: 'Every meal is a journey through the flavours of the Mediterranean — from the sea to the vineyard, from the grandmother\'s larder to the guest\'s table.',
+    rest_f1: 'Organic, seasonal Sicilian cuisine', rest_f2: 'Palmeri wine list — exclusively organic',
+    rest_f3: 'Terrace overlooking the vineyards', rest_f4: 'Private dinners and tastings on request',
+    rest_cta: 'Reserve a table',
+    prod_label: 'Wines & Organic Products', prod_title: 'From our land to your table',
+    prod_sub: '12 hectares of certified organic farming in Avola, Sicily. Every product carries with it respect for nature and decades of winemaking experience from the Breitschmid family.',
+    prod1_name: 'Nero d\'Avola', prod1_desc: 'The king of Sicilian wines. Deep, spiced, with soft tannins. Naturally vinified according to organic principles.',
+    prod2_name: 'Extra Virgin Olive Oil', prod2_desc: 'Hand-picked olives, first cold pressing. A fruity, delicate oil that brings the Sicilian sun directly to your table.',
+    prod3_name: 'Artisan Products', prod3_desc: 'Apricot jams, orange and lemon marmalades, toasted almonds — all carefully crafted by hand.',
+    prod4_name: 'Organic White Wines', prod4_desc: 'Fresh, aromatic wines from native Sicilian grapes, vinified with respect for the territory and its age-old traditions.',
+    prod_shop: 'Shop online', prod_tenuta: 'Visit the Estate',
+    gall_label: 'Gallery', gall_title: 'The beauty of Palmeri',
+    book_label: 'Reservations', book_title: 'Book your stay',
+    book_p: 'Whether you choose Rome or Sicily, our team is at your disposal to create a tailor-made stay. Book directly and enjoy the best rates guaranteed.',
+    book_system: 'Booking system', book_online: 'Book online — real-time availability',
+    book_phone_label: 'Phone', book_email_label: 'Email',
+    form_title: 'Write to us', form_sub: 'We will reply within 24 hours.',
+    form_name: 'Name', form_name_ph: 'Your name', form_email: 'Email', form_email_ph: 'your@email.com',
+    form_dest: 'Destination', form_dest_opt0: '— Select —', form_dest_opt1: 'Casa Palmeri Rome',
+    form_dest_opt2: 'Tenuta Palmeri Sicily', form_dest_opt3: 'Both destinations',
+    form_arrival: 'Arrival', form_departure: 'Departure',
+    form_msg: 'Message', form_msg_ph: 'Tell us what you\'re looking for...',
+    form_submit: 'Send enquiry', form_ok: '✓ Thank you! We\'ll reply within 24 hours.',
+    footer_brand_desc: 'Authentic hospitality in the heart of Italy — Rome and Sicily. Luxury agritourism, organic wines, flavours of the territory.',
+    footer_nav: 'Navigation', footer_about: 'Our story', footer_rooms: 'The rooms',
+    footer_exp: 'Experiences', footer_rest: 'Restaurant', footer_wines: 'Wines & Products',
+    footer_links: 'Partners', footer_shop: 'Online Shop',
+    footer_contact: 'Contacts', footer_tel: 'Phone',
+    footer_partner: 'In partnership with',
+    ticker: ['Luxury Agritourism', 'Organic Sicilian Wines', 'Tenuta Palmeri · Avola', 'Casa Palmeri Rome', 'Nero d\'Avola', 'Organic Olive Oil', 'Le Quattro Sorelle', 'Sicilian Cuisine', 'Baroque Noto', 'Crafted with Heart'],
+    panel_roma_tag: 'Rome, Italy',
+    panel_roma_title: 'Casa Palmeri Rome',
+    panel_roma_body: '<p>In the Monte del Gallo neighbourhood, steps from the Vatican Museums and the historic centre, Casa Palmeri Rome offers intimate and refined hospitality in an exclusive setting.</p><p>Six rooms across two types — Il Melograno at garden level and Il Mandorlo with balcony — each carefully designed to celebrate the local essence.</p>',
+    panel_roma_features: ['Private garden for all guests', 'Lift access for balcony rooms', 'Timeless design and natural materials', 'Unlimited Wi-Fi', 'Cot available on request', 'Airport transfer service'],
+    panel_sic_tag: 'Avola & Noto, Sicily',
+    panel_sic_title: 'Tenuta Palmeri Sicily',
+    panel_sic_body: '<p>Nestled within the 12 organic hectares in Avola, Tenuta Palmeri is far more than a place to sleep. It is a total experience in the heart of authentic Sicily — among vineyards, fragrant olive trees and unparalleled starry skies.</p><p>The Noto suites are located in the heart of the baroque centre, a UNESCO World Heritage Site, offering a romantic and timeless atmosphere.</p>',
+    panel_sic_features: ['Luxury suite in Baroque Noto (UNESCO)', 'Guided tour of cellar and vineyards', 'Organic wine tastings', 'Restaurant Le Quattro Sorelle on the estate', 'Organic estate products as welcome gift', 'Pool and outdoor spaces'],
+  }
+};
+
+// ─── CURRENT LANG ───────────────────────────────────────────────────────────
+let currentLang = 'it';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-bar button').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-bar button[onclick="setLang('${lang}')"]`).classList.add('active');
+  const t = i18n[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) {
+      // Handle title with em
+      if (key === 'phil_title') {
+        el.innerHTML = t[key].replace('*', '<em>').replace('*', '</em>');
+      } else if (key === 'dest_title') {
+        el.innerHTML = t[key].replace(/\n/g, '<br>');
+      } else {
+        el.textContent = t[key];
+      }
+    }
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.getAttribute('data-i18n-ph');
+    if (t[key]) el.setAttribute('placeholder', t[key]);
+  });
+  // Rebuild ticker
+  buildTicker(lang);
+  document.documentElement.lang = lang;
+}
+
+function buildTicker(lang) {
+  const t = i18n[lang];
+  const items = t.ticker;
+  let html = '';
+  for (let i = 0; i < 2; i++) {
+    items.forEach(item => {
+      html += `<span class="ticker-item">${item}</span>`;
+    });
+  }
+  document.getElementById('tickerTrack').innerHTML = html;
+}
+
+// ─── NAV SCROLL ─────────────────────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('mainNav');
+  if (window.scrollY > 80) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// ─── FADE IN ON SCROLL ───────────────────────────────────────────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ─── PANEL ──────────────────────────────────────────────────────────────────
+function openPanel(type) {
+  const t = i18n[currentLang];
+  let tag, title, body, features;
+  if (type === 'roma') {
+    tag = t.panel_roma_tag; title = t.panel_roma_title;
+    body = t.panel_roma_body; features = t.panel_roma_features;
+  } else {
+    tag = t.panel_sic_tag; title = t.panel_sic_title;
+    body = t.panel_sic_body; features = t.panel_sic_features;
+  }
+  const featHtml = features.map(f => `<li>${f}</li>`).join('');
+  document.getElementById('panelBody').innerHTML = `
+    <div class="panel-tag">${tag}</div>
+    <h2 class="panel-title">${title}</h2>
+    <div class="panel-body">
+      ${body}
+      <ul class="panel-features">${featHtml}</ul>
+      <a href="#booking" class="btn-primary" onclick="closePanel()" style="font-size:11px;padding:14px 32px">${t.book_now}</a>
+    </div>`;
+  document.getElementById('panelOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closePanel() {
+  document.getElementById('panelOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanel(); });
+
+// ─── FORM ────────────────────────────────────────────────────────────────────
+function submitForm() {
+  const name  = document.getElementById('f_name').value.trim();
+  const email = document.getElementById('f_email').value.trim();
+  if (!name || !email) return;
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+  document.getElementById('formSuccess').querySelector('p').textContent = i18n[currentLang].form_ok;
+  // Real mailto fallback
+  const dest = document.getElementById('f_dest').value;
+  const msg  = document.getElementById('f_msg').value;
+  const arr  = document.getElementById('f_arrival').value;
+  const dep  = document.getElementById('f_departure').value;
+  const subject = encodeURIComponent(`Casa Palmeri — Richiesta soggiorno`);
+  const body = encodeURIComponent(`Nome: ${name}\nEmail: ${email}\nDestinazione: ${dest}\nArrivo: ${arr}\nPartenza: ${dep}\n\n${msg}`);
+  setTimeout(() => {
+    window.location.href = `mailto:info@casapalmeri.it?subject=${subject}&body=${body}`;
+  }, 800);
+}
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+buildTicker('it');
+// Stagger fade-ups
+document.querySelectorAll('.fade-up').forEach((el, i) => {
+  el.style.transitionDelay = `${(i % 4) * 0.1}s`;
+});
+</script>
+</body>
+</html>
